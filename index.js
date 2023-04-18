@@ -1,19 +1,21 @@
-const a = [1,2,3,4,5,12]
+const a = [3,43,6,4,8,9,2]
 
-const isSorted = (arr) => {
-  let flag = true
+const linear = (arr,target,start) => {
 
 
-  arr.map((item,idx) => {
-    if (arr[idx] > arr[idx+1] ) {
-      flag = false
-    }
-  })
+  if (start === arr.length) {
+    return -1
+  }
 
-return flag
+  if (arr[start] === target) {
+    return start
+  }
+
+   return linear(arr,target,start+1)
 }
 
-const ans = isSorted(a)
+const ans = linear(a,3,0)
+
 console.log('====================================');
 console.log(ans);
 console.log('====================================');
