@@ -1,21 +1,18 @@
-const reverse = (n,start,end) => {
+const a =[2,4,4,12]
 
-if (start >= end) {
-   return
-}
+const isSorted = (arr, start) => {
+  if (start === arr.length-1) {
+    return true;
+  }
 
-let temp = n[start]
-n[start] = n[end]
-n[end] = temp
+  if (arr[start] <= arr[start + 1]) {
+    return isSorted(arr, start + 1);
+  }
 
-// console.log(n)
- reverse(n,start+1,end-1)
-return n
-}
+  return false;
+};
 
-let val = Array.from("12345")
-const ans =reverse(val,0,val.length-1)
-
-console.log('====================================');
-console.log(ans.join(""));
-console.log('====================================');
+const ans = isSorted(a, 0);
+console.log("====================================");
+console.log(ans);
+console.log("====================================");
