@@ -1,27 +1,21 @@
-const nums = [1,2,3,4,5,6]
+const reverse = (n,start,end) => {
 
-const bs = (arr,target,start,end) => {
-
-  if (start > end) {
-    return -1
-  }
-
-let middle = Math.floor((start + end)/2)
-
-if (arr[middle] === target) {
-  return middle
+if (start >= end) {
+   return
 }
 
-if (arr[middle] > target) {
-  return bs(arr,target,start,middle-1)
+let temp = n[start]
+n[start] = n[end]
+n[end] = temp
+
+// console.log(n)
+ reverse(n,start+1,end-1)
+return n
 }
 
-return bs(arr,target,middle+1,end)
+let val = Array.from("12345")
+const ans =reverse(val,0,val.length-1)
 
-}
-
-const ans = bs(nums,6,0,nums.length-1)
 console.log('====================================');
-console.log(ans);
+console.log(ans.join(""));
 console.log('====================================');
-
