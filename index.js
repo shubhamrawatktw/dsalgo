@@ -1,18 +1,19 @@
-const a =[2,4,4,12]
+const a = [1,2,3,4,5,12]
 
-const isSorted = (arr, start) => {
-  if (start === arr.length-1) {
-    return true;
-  }
+const isSorted = (arr) => {
+  let flag = true
 
-  if (arr[start] <= arr[start + 1]) {
-    return isSorted(arr, start + 1);
-  }
 
-  return false;
-};
+  arr.map((item,idx) => {
+    if (arr[idx] > arr[idx+1] ) {
+      flag = false
+    }
+  })
 
-const ans = isSorted(a, 0);
-console.log("====================================");
+return flag
+}
+
+const ans = isSorted(a)
+console.log('====================================');
 console.log(ans);
-console.log("====================================");
+console.log('====================================');
