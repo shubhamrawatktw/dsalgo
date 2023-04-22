@@ -1,21 +1,18 @@
-const a = [3,43,6,4,8,9,2]
+const arr = [7,10,4,3,6,5,2]
 
-const linear = (arr,target,start) => {
+const leaders = []
 
+for (let i = 0; i < arr.length; i++) {
+   let isLeader = true
+    for (let j = i+1; j < arr.length; j++) {
+        if (arr[i] < arr[j] ) {
+            isLeader = false
+        }
+    }
 
-  if (start === arr.length) {
-    return -1
-  }
-
-  if (arr[start] === target) {
-    return start
-  }
-
-   return linear(arr,target,start+1)
+    if (isLeader) {
+        leaders.push(arr[i])
+    }
 }
 
-const ans = linear(a,3,0)
-
-console.log('====================================');
-console.log(ans);
-console.log('====================================');
+console.log(leaders)
