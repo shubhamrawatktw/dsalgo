@@ -1,15 +1,15 @@
-const arr = [7,10,4,3,6,5,2]
-
-const leaders = []
-let currLeader = arr[arr.length-1]
-leaders[0] = arr[arr.length-1]
-for (let i = arr.length-2; i >= 0; i--) {
+const arr = [30,10,8,2]
+let maxDiff = Number.NEGATIVE_INFINITY
+for (let i = 0; i < arr.length; i++) {
    
-    if (arr[i] > currLeader) {
-        currLeader = arr[i]
-        leaders.push(arr[i])
+    for (let j = i+1; j < arr.length; j++) {
+      let currDiff = arr[j] - arr[i]
+      if (currDiff > maxDiff) {
+        maxDiff = currDiff
+      }
+        
     }
     
 }
 
-console.log(leaders)
+console.log(maxDiff)
