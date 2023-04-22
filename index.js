@@ -1,18 +1,15 @@
 const arr = [7,10,4,3,6,5,2]
 
 const leaders = []
-
-for (let i = 0; i < arr.length; i++) {
-   let isLeader = true
-    for (let j = i+1; j < arr.length; j++) {
-        if (arr[i] < arr[j] ) {
-            isLeader = false
-        }
-    }
-
-    if (isLeader) {
+let currLeader = arr[arr.length-1]
+leaders[0] = arr[arr.length-1]
+for (let i = arr.length-2; i >= 0; i--) {
+   
+    if (arr[i] > currLeader) {
+        currLeader = arr[i]
         leaders.push(arr[i])
     }
+    
 }
 
 console.log(leaders)
