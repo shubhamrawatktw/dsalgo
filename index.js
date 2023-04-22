@@ -1,13 +1,30 @@
-const arr = [1,5,3,8,12]
+const arr = [5,0,6,2,3]
 
-let profit = 0
+let res = 0
 
-for (let i = 0; i < arr.length; i++) {
-   
-    if (arr[i+1] > arr[i]) {
-        profit += arr[i+1] - arr[i]
-    }
+const leftMax = []
+const rightMax = []
+
+leftMax[0] = arr[0]
+for (let i = 1; i < arr.length; i++) {
+    
+    leftMax[i] = Math.max(arr[i],leftMax[i-1])
+    // console.log(arr[i],leftMax[i-1])
+}
+
+rightMax[arr.length-1] = arr[arr.length-1]
+
+for (let i = arr.length-2; i >=0; i--) {
+    rightMax[i]  = Math.max(arr[i],rightMax[i+1])
     
 }
 
-console.log(profit)
+
+for (let i = 1; i < arr.length-1; i++) {
+    res = res + (Math.min(leftMax[i],rightMax[i])-arr[i])
+    
+}
+
+console.log(res)
+
+
