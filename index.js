@@ -1,14 +1,18 @@
-const arr = [2,3,10,6,4,8,1]
+// frequency in sorted Array
 
-let minValue = arr[0]
+const arr = [10,10,10,25,30,30]
+const obj = {}
 
-let maxDiff = arr[1] - arr[0]
-
-for (let j = 1; j < arr.length; j++) {
-    
-    maxDiff = Math.max(maxDiff,arr[j] - minValue)
-    minValue = Math.min(minValue,arr[j])
-    
+for (let i = 0; i < arr.length; i++) {
+   const el = arr[i]
+  if (!obj[el]) {
+      obj[el] = 1
+  }
+  else{
+    obj[el] = obj[el] + 1
+  }
 }
 
-console.log(maxDiff)
+Object.values(obj).map(item => {
+    console.log(item)
+})
