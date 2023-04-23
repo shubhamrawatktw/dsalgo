@@ -1,26 +1,30 @@
-// subArray with given sum
+// binary search with sorted array
+const a = [10, 20, 30, 40, 50, 60];
+const tar= 50;
 
-const arr = [1,4,20,3,10,5]
-const target = 33
-let isTarget = false
-
-let start = 0
-let curr = 0
-for (let j = 0; j < arr.length; j++) {
-    curr+= arr[j]
-    
-    while (target < curr) {
-         curr-= arr[start]
-         start++
-    }
-    if (curr === target) {
-        isTarget = true
-        console.log(start,j)
+const bs = (arr, target) => {
+  let index = -1;
+  let start = 0;
+  let end = arr.length - 1;
+  
+//   console.log(start,end,"mid")
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if (arr[mid] === target) {
+      index = mid;
+      break
     }
 
-}
+    if (target > arr[mid]) {
+      start = mid+1;
+    }
 
+    if (target < arr[mid]) {
+      end = mid-1;
+    }
+  }
 
+  return index;
+};
 
-
-console.log(isTarget)
+console.log(bs(a, tar));
