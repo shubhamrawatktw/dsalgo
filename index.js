@@ -1,30 +1,24 @@
-const arr = [5,0,6,2,3]
+// consecutive arreays
 
-let res = 0
+const arr = [0,0,0,0]
 
-const leftMax = []
-const rightMax = []
+ let res = 0
+ let tempRes = 0
 
-leftMax[0] = arr[0]
-for (let i = 1; i < arr.length; i++) {
+
+ for (let i = 0; i < arr.length; i++) {
     
-    leftMax[i] = Math.max(arr[i],leftMax[i-1])
-    // console.log(arr[i],leftMax[i-1])
-}
 
-rightMax[arr.length-1] = arr[arr.length-1]
+     if (arr[i] === 1) {
+         tempRes++
+     }
 
-for (let i = arr.length-2; i >=0; i--) {
-    rightMax[i]  = Math.max(arr[i],rightMax[i+1])
-    
-}
+     if ((arr[i] === 0 || i === arr.length -1) && res<tempRes) {
+         res = tempRes
+         tempRes = 0
+     }
 
-
-for (let i = 1; i < arr.length-1; i++) {
-    res = res + (Math.min(leftMax[i],rightMax[i])-arr[i])
-    
-}
-
-console.log(res)
+ }
 
 
+ console.log(res)
