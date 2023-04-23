@@ -1,30 +1,26 @@
-// majority elements
+// subArray with given sum
 
-const arr = [8,3,4,8,8]
-const majorityNum = Math.floor(arr.length /2)
-const obj = {}
+const arr = [1,4,20,3,10,5]
+const target = 33
+let isTarget = false
 
-for (let i = 0; i < arr.length; i++) {
-    const element = arr[i];
-
-    if (!obj[element]) {
-        obj[element] = 1
-    }
-    else{
-        obj[element] = obj[element]+1
-    }
+let start = 0
+let curr = 0
+for (let j = 0; j < arr.length; j++) {
+    curr+= arr[j]
     
+    while (target < curr) {
+         curr-= arr[start]
+         start++
+    }
+    if (curr === target) {
+        isTarget = true
+        console.log(start,j)
+    }
+
 }
 
-const ans =Object.entries(obj).map((item) => {
-    const [key,value] = item
- 
-    if (value > majorityNum) {
-     return key
-    }
-}).filter(el => Boolean(el))
 
-// console.log(ans)
 
-const index = arr.indexOf(parseInt(ans[0]))
-console.log(index)
+
+console.log(isTarget)
