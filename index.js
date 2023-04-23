@@ -1,31 +1,30 @@
-// maximum sum subaraay
+// majority elements
 
-const sum = (a,start,end) => {
-    const pika = a.slice(start,end)
-    const value = pika.reduce((acc,item) => {
-          acc+=item
-           return acc
-    },0)
-
-    return value
-}
-
-const arr = [-6,-1,-8]
-
-let res = Math.max(...arr)
+const arr = [8,3,4,8,8]
+const majorityNum = Math.floor(arr.length /2)
+const obj = {}
 
 for (let i = 0; i < arr.length; i++) {
-   
-for (let j = i+1; j < arr.length; j++) {
-   
-    const maxSum = sum(arr,i,j+1)
-    res = Math.max(res,maxSum)
+    const element = arr[i];
+
+    if (!obj[element]) {
+        obj[element] = 1
+    }
+    else{
+        obj[element] = obj[element]+1
+    }
     
 }
-     
-    
-}
 
+const ans =Object.entries(obj).map((item) => {
+    const [key,value] = item
+ 
+    if (value > majorityNum) {
+     return key
+    }
+}).filter(el => Boolean(el))
 
+// console.log(ans)
 
-console.log(res)
+const index = arr.indexOf(parseInt(ans[0]))
+console.log(index)
