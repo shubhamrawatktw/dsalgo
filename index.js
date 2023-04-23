@@ -1,24 +1,31 @@
-// consecutive arreays
+// maximum sum subaraay
 
-const arr = [0,0,0,0]
+const sum = (a,start,end) => {
+    const pika = a.slice(start,end)
+    const value = pika.reduce((acc,item) => {
+          acc+=item
+           return acc
+    },0)
 
- let res = 0
- let tempRes = 0
+    return value
+}
 
+const arr = [-6,-1,-8]
 
- for (let i = 0; i < arr.length; i++) {
+let res = Math.max(...arr)
+
+for (let i = 0; i < arr.length; i++) {
+   
+for (let j = i+1; j < arr.length; j++) {
+   
+    const maxSum = sum(arr,i,j+1)
+    res = Math.max(res,maxSum)
     
-
-     if (arr[i] === 1) {
-         tempRes++
-     }
-
-     if ((arr[i] === 0 || i === arr.length -1) && res<tempRes) {
-         res = tempRes
-         tempRes = 0
-     }
-
- }
+}
+     
+    
+}
 
 
- console.log(res)
+
+console.log(res)
