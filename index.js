@@ -1,24 +1,18 @@
-// bubble sort => O(n)2
+// Insertion Sort
+// best case = o(n)
+// worst case = o(n)2
 
-// Selection Sort O(n)2
+const arr = [20, 5, 40, 60, 10, 30];
 
-// find smallest than put it in new array
+for (let i = 1; i < arr.length; i++) {
+  const key = arr[i];
+   let j = i-1
+   while (j>=0 && arr[j] > key) {
+    arr[j+1] = arr[j]
+    j--
+   }
 
-// swap - [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-
-const arr = [10, 5, 8, 20, 2, 18];
-
-for (let i = 0; i < arr.length; i++) {
-  let minIndex = i
-  for (let j = i + 1; j < arr.length; j++) {
-
-    if (arr[j] < arr[minIndex]) {
-      minIndex = j
-    }
-  }
-
-  [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
-
+   arr[j+1] = key
 }
 
-console.log(arr)
+console.log(arr);
