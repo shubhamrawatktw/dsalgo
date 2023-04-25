@@ -1,18 +1,21 @@
-// Insertion Sort
-// best case = o(n)
-// worst case = o(n)2
+// merge sort 
 
-const arr = [20, 5, 40, 60, 10, 30];
+const arr1 = [2,4,8]
+const arr2 = [5,6,12,16]
+const res = []
+let i=0
+let j=0
 
-for (let i = 1; i < arr.length; i++) {
-  const key = arr[i];
-   let j = i-1
-   while (j>=0 && arr[j] > key) {
-    arr[j+1] = arr[j]
-    j--
-   }
+while (i<arr1.length || j < arr2.length) {
+ if (arr1[i] < arr2[j]) {
+  res.push(arr1[i])
+  i++
+ }
+ else{
+  res.push(arr2[j])
+  j++
+ }
 
-   arr[j+1] = key
 }
 
-console.log(arr);
+console.log(res)
