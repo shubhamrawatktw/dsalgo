@@ -1,28 +1,35 @@
-// equilibrium point
+// Intersection of two sorted arrays
 
-const arr = [1,2,3,4,5];
+const a = [3,5,10,10,10,10,15,15,20]
+const b = [5,10,10,15,30]
+const ans =[]
+let i = 0
+let j = 0
+let k = 0
 
-for (let i = 0; i < arr.length; i++) {
-  const element = arr[i];
-  let ls = 0;
-  let rs = 0;
-
-  for (let j = i - 1; j >= 0; j--) {
-    ls += arr[j];
+while (i < a.length && j<b.length) {
+  console.log("shubham")
+  if (a[i] === b[j]) {
+    ans[k] = a[i]
+    i++,
+    j++,
+    k++
   }
-
-  for (let j = i + 1; j < arr.length; j++) {
-    const element = arr[j];
-
-    rs += element;
+  if(b[j] > a[i]){
+    i++
   }
-
-  if (ls === rs) {
-     console.log("true",i)
+  if (a[i] > b[j]) {
+    j++
   }
 }
 
-// prefix sum array 
+const sorted =[]
 
-
-
+for (let i = 0; i < ans.length; i++) {
+  const element = ans[i];
+  if (element !== ans[i+1]) {
+    sorted.push(element)
+  }
+  
+}
+console.log(sorted)
